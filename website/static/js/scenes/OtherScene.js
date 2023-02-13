@@ -78,16 +78,15 @@ export default class OtherScene extends BaseScene {
 
     load_start_page() {
         // Draws the splash page
-        console.log('Loading Other Splash Page');
-        console.log('Miso block');
+        console.log('Loading Miso Splash Page');
         this.keySPACE.enabled = false;
-        // this.text_content = 'MISO BLOCK'; // used to be "Food block"
-        // this.text = this.add.text(
-        //     this.game.canvas.width / 2,
-        //     this.game.canvas.height / 2,
-        //     this.text_content, this.text_params);
-        // this.text.setOrigin(0.5, 0.5);
-        // this.objGroup.add(this.text); // Reminder that all objects need to be added to this group
+        this.text_content = 'MISO BLOCK'; // used to be "Food block"
+        this.text = this.add.text(
+            this.game.canvas.width / 2,
+            this.game.canvas.height / 2,
+            this.text_content, this.text_params);
+        this.text.setOrigin(0.5, 0.5);
+        this.objGroup.add(this.text); // Reminder that all objects need to be added to this group
         var timedEvent = this.time.delayedCall(this.spacebar_delay, this.draw_trial_page, [], this);
     }
 
