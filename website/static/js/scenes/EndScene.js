@@ -37,7 +37,7 @@ export default class EndScene extends Phaser.Scene {
         this.objGroup.clear(true, true);
         // Draw text to show end of task
         this.text_content = 'You have completed the experiment!\n\n' +
-            'Thanks for your participation! The next scene should load automatically.';
+            'Thanks for your participation! The next page should load automatically.';
         this.text = this.add.text(
             this.game.canvas.width / 2,
             this.game.canvas.height / 2 - 200,
@@ -63,8 +63,11 @@ export default class EndScene extends Phaser.Scene {
             'If it does not, follow this link.',
             this.text_params);
 
-        var task_id = 'flask-food-craving';
-        var url = `https://redcap.mountsinai.org/redcap/surveys/?s=C3WYXCNHYFHKC88N&prolific_pid=` + subID + `&study_id=` + task_id + `&session_id=1`; //embed ID to your red cap
+        var task_id = 'miso-slots-task';
+        // new MISO REDCAP URL
+        var url = `https://redcap.mountsinai.org/redcap/surveys/?s=C3WYXCNHYFHKC88N` + `&study_id=` + task_id;
+
+        // var url = `https://redcap.mountsinai.org/redcap/surveys/?s=C3WYXCNHYFHKC88N&prolific_pid=` + subID + `&study_id=` + task_id + `&session_id=1`; //embed ID to your red cap
         this.url_content = this.add.text(0, 0, url, {
             fontFamily: 'Helvetica',
             fontSize: 15,

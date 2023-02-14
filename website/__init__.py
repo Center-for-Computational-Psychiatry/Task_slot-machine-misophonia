@@ -4,7 +4,7 @@ from flask import session
 from os import path
 
 db = SQLAlchemy()
-DB_NAME = "database-drug-craving.sqlite"
+DB_NAME = "database-misophonia.sqlite"
 
 
 def create_app():
