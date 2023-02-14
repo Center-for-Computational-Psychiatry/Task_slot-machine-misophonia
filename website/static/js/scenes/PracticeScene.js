@@ -24,13 +24,11 @@ export default class PracticeScene extends BaseScene {
 
         // this.current_block = 0; // Not needed unless running multiple blocks
         // this.block_type = 'practice'; // Already accounted for in data save
-
         super.create();
         this.total_num_trials = 5; // this line needs to come AFTER super.create,
         // or else will be overwritten by BaseScene's total_num_trials
-
+        
         console.log('Practice Scene loading.');
-        console.log('Total trials left:' + this.total_num_trials);
 
         if (this.reversal_timings == 'A') {
             // Left better first

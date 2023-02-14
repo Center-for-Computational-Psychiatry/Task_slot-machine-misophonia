@@ -11,32 +11,32 @@ export default class InstructionsScene extends Phaser.Scene {
         this.load.audio('sound_A_gulping', './static/assets/audiovideo/gulping_A.wav')
         this.load.audio('sound_B_gulping', './static/assets/audiovideo/gulping_B.wav')
         this.load.image('image_A_gulping', './static/assets/audiovideo/gulping_A.png');
-        this.load.image('image_B_gulping', './static/assets/audiovideo/gulping_A.png');
+        this.load.image('image_B_gulping', './static/assets/audiovideo/gulping_B.png');
 
         this.load.audio('sound_A_sniffing', './static/assets/audiovideo/sniffing_A.wav')
         this.load.audio('sound_B_sniffing', './static/assets/audiovideo/sniffing_B.wav')
         this.load.image('image_A_sniffing', './static/assets/audiovideo/sniffing_A.png');
-        this.load.image('image_B_sniffing', './static/assets/audiovideo/sniffing_A.png');
+        this.load.image('image_B_sniffing', './static/assets/audiovideo/sniffing_B.png');
 
         this.load.audio('sound_A_swishing', './static/assets/audiovideo/swishing_A.wav')
         this.load.audio('sound_B_swishing', './static/assets/audiovideo/swishing_B.wav')
         this.load.image('image_A_swishing', './static/assets/audiovideo/swishing_A.png');
-        this.load.image('image_B_swishing', './static/assets/audiovideo/swishing_A.png');
+        this.load.image('image_B_swishing', './static/assets/audiovideo/swishing_B.png');
 
         this.load.audio('sound_A_sipping', './static/assets/audiovideo/sipping_A.wav')
         this.load.audio('sound_B_sipping', './static/assets/audiovideo/sipping_B.wav')
         this.load.image('image_A_sipping', './static/assets/audiovideo/sipping_A.png');
-        this.load.image('image_B_sipping', './static/assets/audiovideo/sipping_A.png');
+        this.load.image('image_B_sipping', './static/assets/audiovideo/sipping_B.png');
 
         this.load.audio('sound_A_wet_chewing', './static/assets/audiovideo/wet_chewing_A.wav')
         this.load.audio('sound_B_wet_chewing', './static/assets/audiovideo/wet_chewing_B.wav')
         this.load.image('image_A_wet_chewing', './static/assets/audiovideo/wet_chewing_A.png');
-        this.load.image('image_B_wet_chewing', './static/assets/audiovideo/wet_chewing_A.png');
+        this.load.image('image_B_wet_chewing', './static/assets/audiovideo/wet_chewing_B.png');
 
         this.load.audio('sound_A_scraping', './static/assets/audiovideo/scraping_plate_A.wav')
         this.load.audio('sound_B_scraping', './static/assets/audiovideo/scraping_plate_B.wav')
         this.load.image('image_A_scraping', './static/assets/audiovideo/scraping_plate_A.png');
-        this.load.image('image_B_scraping', './static/assets/audiovideo/scraping_plate_A.png');
+        this.load.image('image_B_scraping', './static/assets/audiovideo/scraping_plate_B.png');
 
         // LOAD SLOT MACHINE IMAGES
         this.load.image('misobar', './static/assets/slot_win_audio_100x600.png');
@@ -56,8 +56,8 @@ export default class InstructionsScene extends Phaser.Scene {
         var debug = false;
 
         if (debug == true) {
-            this.spacebar_delay = 100;
-            this.basespintime = 100;
+            this.spacebar_delay = 3000;
+            this.basespintime = 1400;
         } else {
             this.spacebar_delay = 3000;
             this.basespintime = 1400;

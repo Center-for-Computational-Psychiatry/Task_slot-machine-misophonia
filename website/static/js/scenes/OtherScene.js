@@ -80,7 +80,7 @@ export default class OtherScene extends BaseScene {
         // Draws the splash page
         console.log('Loading Miso Splash Page');
         this.keySPACE.enabled = false;
-        this.text_content = 'MISO BLOCK'; // used to be "Food block"
+        this.text_content = 'STARTING EXPERIMENT NOW'; // used to be "Food block"
         this.text = this.add.text(
             this.game.canvas.width / 2,
             this.game.canvas.height / 2,

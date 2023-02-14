@@ -17,6 +17,7 @@ export default class BaseScene extends Phaser.Scene {
     create() {
         var debug = false; //CHANGE BEFORE LAUNCH
         // Define total number of trials
+        // 40 for full phase, 2 for debugging
         if (debug == true) {
             this.total_num_trials = 10;
             this.spacebar_delay = 100;
