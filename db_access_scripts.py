@@ -7,7 +7,7 @@ project_dir = 'task_slot-machine-misophonia/website'
 # project_dir = 'miso_app_prechange'
 
 # Read sqlite query results into a pandas DataFrame
-con = sqlite3.connect(f'{root_dir}/{project_dir}/website/database-misophonia.sqlite')
+con = sqlite3.connect(f'{root_dir}/{project_dir}/database-misophonia.sqlite')
 # con = sqlite3.connect(f'{root_dir}/{project_dir}/database-drug-craving.sqlite')
 
 all_tables = pd.read_sql_query("SELECT * from sqlite_master", con)
