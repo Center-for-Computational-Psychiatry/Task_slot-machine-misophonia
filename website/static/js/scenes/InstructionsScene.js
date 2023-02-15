@@ -56,8 +56,8 @@ export default class InstructionsScene extends Phaser.Scene {
         var debug = false;
 
         if (debug == true) {
-            this.spacebar_delay = 3000;
-            this.basespintime = 1400;
+            this.spacebar_delay = 100;
+            this.basespintime = 200;
         } else {
             this.spacebar_delay = 3000;
             this.basespintime = 1400;
@@ -191,23 +191,23 @@ export default class InstructionsScene extends Phaser.Scene {
     }
 
     // Choose random order for miso triggers to display on Screen 2
-    randomize_choice_order() {
-        var random_order_choices = ['Gulping water', 'Sniffing', 'Swishing water', 'Sipping', 'Wet chewing', 'Scraping on a plate']
-        shuffle(random_order_choices);
-        console.log(random_order_choices)
-        this.choice_A = random_order_choices[0];
-        this.choice_B = random_order_choices[1];
-        this.choice_C = random_order_choices[2];
-        this.choice_D = random_order_choices[3];
-        this.choice_E = random_order_choices[4];
-        this.choice_F = random_order_choices[5];
-        console.log(this.choice_A)
-        console.log(this.choice_B)
-        console.log(this.choice_C)
-        console.log(this.choice_D)
-        console.log(this.choice_E)
-        console.log(this.choice_F)
-    }
+    // randomize_choice_order() {
+    //     var random_order_choices = ['Gulping water', 'Sniffing', 'Swishing water', 'Sipping', 'Wet chewing', 'Scraping on a plate']
+    //     shuffle(random_order_choices);
+    //     console.log(random_order_choices)
+    //     this.choice_A = random_order_choices[0];
+    //     this.choice_B = random_order_choices[1];
+    //     this.choice_C = random_order_choices[2];
+    //     this.choice_D = random_order_choices[3];
+    //     this.choice_E = random_order_choices[4];
+    //     this.choice_F = random_order_choices[5];
+    //     console.log(this.choice_A)
+    //     console.log(this.choice_B)
+    //     console.log(this.choice_C)
+    //     console.log(this.choice_D)
+    //     console.log(this.choice_E)
+    //     console.log(this.choice_F)
+    // }
 
     // SCREEN 2 (MISO TRIGGER SELECTION) FUNCTIONS
     draw_screen_2() {
@@ -250,15 +250,15 @@ export default class InstructionsScene extends Phaser.Scene {
     randomize_choice_order() { // randomly choose order of miso triggers to display on screen 2
         var random_order_choices = ['Gulping water', 'Sniffing', 'Swishing water', 'Sipping', 'Wet chewing', 'Scraping on a plate'] // Remember to change names to match in "set_trigger_choices" function if changing any names in this array.
 
-        random_order_choices.sort(() => Math.random() - 0.5); // randomize order of choices in array
-        console.log(random_order_choices)
+        this.choices_order = random_order_choices.sort(() => Math.random() - 0.5); // randomize order of choices in array
+        console.log(this.choices_order)
 
-        this.choice_A = random_order_choices[0];
-        this.choice_B = random_order_choices[1];
-        this.choice_C = random_order_choices[2];
-        this.choice_D = random_order_choices[3];
-        this.choice_E = random_order_choices[4];
-        this.choice_F = random_order_choices[5];
+        this.choice_A = this.choices_order[0];
+        this.choice_B = this.choices_order[1];
+        this.choice_C = this.choices_order[2];
+        this.choice_D = this.choices_order[3];
+        this.choice_E = this.choices_order[4];
+        this.choice_F = this.choices_order[5];
     }
 
     draw_select_box(choice) {
@@ -816,7 +816,7 @@ export default class InstructionsScene extends Phaser.Scene {
         this.objGroup.clear(true, true);
 
         // Draw the trial number and score text
-        this.text_content = 'This experiment will take about 20 minutes.\n\n' +
+        this.text_content = 'This experiment will take about 10 minutes.\n\n' +
         'Please be sure to turn off your cell phone and any other devices that may distract you during the task.';
         this.text = this.add.text(
             this.game.canvas.width / 2,
@@ -866,12 +866,15 @@ export default class InstructionsScene extends Phaser.Scene {
         var participant_info = {
             participant_id: this.participant_id,
             miso_trigger: this.miso_trigger,
+
             reversal_timings: this.reversal_timings,
             base_mood_rating: this.base_mood_rating,
             timestamp: (new Date()).getTime() / 1000
         };
         // Send to Flask's task.py
         console.log('Saving participant data...')
+        console.log(JSON.stringify(participant_info))
+
         fetch('/save-participant', {
             method: 'POST',
             headers: {
@@ -1026,21 +1029,32 @@ export default class InstructionsScene extends Phaser.Scene {
 }
 
 var getID = function (scene) {
+    //Welcome text
+    var welcome_text = scene.add.text(
+        scene.game.canvas.width / 2 - 150,
+        scene.game.canvas.height / 2 - 200,
+        'Slot Machine Game', scene.text_params);
+    welcome_text.setScale(1.5);
+    scene.objGroup.add(welcome_text);
 
-    if (scene.url_pid == null) {
-        var id_text = `Input ID here`;
-    } else {
-        var id_text = scene.url_pid;
-    }
+    //Subject ID field
     var id_caption = scene.add.text(
-        scene.game.canvas.width / 2 - 220,
-        scene.game.canvas.height / 2 - 115,
-        'PID:', scene.text_params);
+        scene.game.canvas.width / 2 - 150,
+        scene.game.canvas.height / 2 - 50,
+        'Subject ID:', scene.text_params);
     scene.objGroup.add(id_caption);
-    scene.id_text_content = scene.add.text(0, 0, id_text, scene.text_params);
+    // if (scene.url_pid == null) {
+    var id_text = `0000001`;
+    //} else {
+    //     var id_text = scene.url_pid;
+    // }
+    scene.id_text_content = scene.add.text(
+        scene.game.canvas.width / 2 - 50,
+        scene.game.canvas.height / 2 - 38,
+        id_text, scene.text_params);
     var id_textbox = createTextBox(scene,
-        scene.game.canvas.width / 2 + 100,
-        scene.game.canvas.height / 2 - 100,
+        scene.game.canvas.width / 2,
+        scene.game.canvas.height / 2 - 38,
         scene.id_text_content)
     id_textbox
         .setOrigin(0, 0)
@@ -1049,13 +1063,14 @@ var getID = function (scene) {
             scene.rexUI.edit(scene.id_text_content)
         })
     scene.objGroup.add(id_textbox)
-
+    //Continue button
     var buttons = scene.rexUI.add.buttons({
-        x: scene.game.canvas.width / 2 - 100, y: scene.game.canvas.height / 2 + 100,
+        x: scene.game.canvas.width / 2,
+        y: scene.game.canvas.height / 2 + 150,
         // width: 100,
         // orientation: 'x',
         buttons: [
-            createButton(scene, 'Continue'), // Add button in constructor
+            createButton(scene, '> CLICK HERE TO CONTINUE <'), // Add button in constructor
         ],
     })
         .layout()

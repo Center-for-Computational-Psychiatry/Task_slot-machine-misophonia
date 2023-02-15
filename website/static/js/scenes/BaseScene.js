@@ -15,14 +15,14 @@ export default class BaseScene extends Phaser.Scene {
     }
 
     create() {
-        var debug = false; //CHANGE BEFORE LAUNCH
+        var debug = true; //CHANGE BEFORE LAUNCH
         // Define total number of trials
         // 40 for full phase, 2 for debugging
         if (debug == true) {
-            this.total_num_trials = 10;
+            this.total_num_trials = 5;
             this.spacebar_delay = 100;
             this.trial_delay = 1000;
-            this.basespintime = 100;
+            this.basespintime = 1500;
         } else {
             this.total_num_trials = 60;
             this.spacebar_delay = 3000;
@@ -412,11 +412,12 @@ export default class BaseScene extends Phaser.Scene {
             mood_rating: this.mood_rating,
             attention_rating: this.attention_rating
         };
+        console.log(JSON.stringify(trial_data))
         // Send to Flask view
         fetch('/save-trial-data', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(trial_data),
+            body: JSON.stringify(trial_data)
         });
     }
 

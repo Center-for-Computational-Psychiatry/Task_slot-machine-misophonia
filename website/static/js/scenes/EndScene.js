@@ -37,7 +37,8 @@ export default class EndScene extends Phaser.Scene {
         this.objGroup.clear(true, true);
         // Draw text to show end of task
         this.text_content = 'You have completed the experiment!\n\n' +
-            'Thanks for your participation! The next page should load automatically.';
+            'Thank you for your participation!';
+            // The next page should load automatically.';
         this.text = this.add.text(
             this.game.canvas.width / 2,
             this.game.canvas.height / 2 - 200,
@@ -46,7 +47,8 @@ export default class EndScene extends Phaser.Scene {
         this.objGroup.add(this.text);
         this.redcap_enabled = true;
 
-        var timedEvent = this.time.delayedCall(this.spacebar_delay, this.load_redcap, [], this);
+        // Use this to load redcap or redirect to external website
+        // var timedEvent = this.time.delayedCall(this.spacebar_delay, this.load_redcap, [], this);
     }
 
     load_redcap() {
