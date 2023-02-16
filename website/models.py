@@ -9,7 +9,8 @@ class Participant(db.Model, UserMixin):
     reversal_timings = db.Column(db.String(10))
     base_mood_rating = db.Column(db.Integer)
     timestamp = db.Column(db.Float)
-
+    choices_order=db.Column(db.String(100))
+    
     taskdata = db.relationship("TaskData")
     triggerdata = db.relationship("TriggerData")
 
@@ -28,7 +29,6 @@ class TaskData(db.Model):
     reward_time = db.Column(db.Float)
     rt = db.Column(db.Float)
     spinspeed = db.Column(db.String(50))
-    # craving_rating = db.Column(db.Integer)
     mood_rating = db.Column(db.Integer)
 
     pid_db = db.Column(db.Integer, db.ForeignKey("participant.id"))

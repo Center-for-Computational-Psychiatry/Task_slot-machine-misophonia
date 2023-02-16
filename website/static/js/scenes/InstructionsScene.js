@@ -866,7 +866,7 @@ export default class InstructionsScene extends Phaser.Scene {
         var participant_info = {
             participant_id: this.participant_id,
             miso_trigger: this.miso_trigger,
-
+            choices_order: this.choices_order,
             reversal_timings: this.reversal_timings,
             base_mood_rating: this.base_mood_rating,
             timestamp: (new Date()).getTime() / 1000

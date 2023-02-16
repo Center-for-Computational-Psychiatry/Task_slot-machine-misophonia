@@ -6,9 +6,8 @@ from datetime import date
 
 root_dir = '/Users/janet/Desktop/Sinai_Projects/Code/'
 project_dir = 'task_slot-machine-misophonia/website'
-# project_dir = 'miso_app_prechange'
 
-# Read sqlite query results into a pandas DataFrame
+# Convert database SQL query --> pandas dataframe
 con = sqlite3.connect(f'{root_dir}/{project_dir}/database-misophonia.sqlite')
 
 all_tables = pd.read_sql_query("SELECT * from sqlite_master", con)
@@ -22,10 +21,12 @@ display(participant_data)
 display(task_data)
 # display(trigger_data)
 
-# Convert database --> dataframe --> CSV file
-# https://www.alixaprodev.com/2022/04/sqlite-database-to-csv-file-in-python.html#:~:text=The%20Best%20way%20to%20convert%20any%20Sqlite%20database%20to%20CSV,file%20using%20the%20pandas%20module.
-
+# Get current date time object
+# https://www.programiz.com/python-programming/datetime/strftime
 current_date = date.today().strftime("%m-%d-%Y")
+
+# Convert dataframes --> CSV file
+# https://www.alixaprodev.com/2022/04/sqlite-database-to-csv-file-in-python.html#:~:text=The%20Best%20way%20to%20convert%20any%20Sqlite%20database%20to%20CSV,file%20using%20the%20pandas%20module.
 participant_data.to_csv('data/miso_participant_data_'+current_date+'.csv', index=False)
 task_data.to_csv('data/miso_task_data_'+current_date+'.csv', index=False)
 # trigger_data.to_csv('misophonia_trigger_data.csv', index=False)
