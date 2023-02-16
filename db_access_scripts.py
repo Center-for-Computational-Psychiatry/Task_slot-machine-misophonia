@@ -1,6 +1,8 @@
 import sqlite3
 import pandas as pd
 from IPython.display import display
+from glob import glob; from os.path import expanduser
+from datetime import date
 
 root_dir = '/Users/janet/Desktop/Sinai_Projects/Code/'
 project_dir = 'task_slot-machine-misophonia/website'
@@ -8,22 +10,24 @@ project_dir = 'task_slot-machine-misophonia/website'
 
 # Read sqlite query results into a pandas DataFrame
 con = sqlite3.connect(f'{root_dir}/{project_dir}/database-misophonia.sqlite')
-# con = sqlite3.connect(f'{root_dir}/{project_dir}/database-drug-craving.sqlite')
 
 all_tables = pd.read_sql_query("SELECT * from sqlite_master", con)
-df_summary = pd.read_sql_query("SELECT * from participant", con)
-df_longform = pd.read_sql_query("SELECT * from task_data", con)
-df_triggers = pd.read_sql_query("SELECT * from trigger_data", con)
-
-# pd.set_option('display.max_rows', 1000)
-# pd.set_option('display.max_columns', 1000)
-# pd.set_option('display.width', 1000)
+participant_data = pd.read_sql_query("SELECT * from participant", con)
+task_data = pd.read_sql_query("SELECT * from task_data", con)
+trigger_data = pd.read_sql_query("SELECT * from trigger_data", con)
 
 # Verify that result of SQL query is stored in the dataframe
 display(all_tables)
-display(df_summary)
-display(df_longform)
-display(df_triggers)
+display(participant_data)
+display(task_data)
+# display(trigger_data)
 
-# display(all_tables)
+# Convert database --> dataframe --> CSV file
+# https://www.alixaprodev.com/2022/04/sqlite-database-to-csv-file-in-python.html#:~:text=The%20Best%20way%20to%20convert%20any%20Sqlite%20database%20to%20CSV,file%20using%20the%20pandas%20module.
+
+current_date = date.today().strftime("%m-%d-%Y")
+participant_data.to_csv('data/miso_participant_data_'+current_date+'.csv', index=False)
+task_data.to_csv('data/miso_task_data_'+current_date+'.csv', index=False)
+# trigger_data.to_csv('misophonia_trigger_data.csv', index=False)
+
 con.close()
