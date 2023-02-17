@@ -9,9 +9,9 @@ import json
 task = Blueprint("task", __name__)
 
 
-@task.route("/slots-fc", methods=["GET"])
+@task.route("/slots-miso", methods=["GET"])
 def run():
-    return render_template("slots-fc.html")
+    return render_template("slots-miso.html")
 
 
 @task.post("/save-participant")
@@ -20,6 +20,7 @@ def save_participant():
     participant = Participant(
         pid=data["participant_id"],
         miso_trigger=data["miso_trigger"],
+        choices_order=data["choices_order"],
         reversal_timings=data["reversal_timings"],
         base_mood_rating=data["base_mood_rating"],
         timestamp=time.time()

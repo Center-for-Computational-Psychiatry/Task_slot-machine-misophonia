@@ -175,7 +175,7 @@ export default class InstructionsScene extends Phaser.Scene {
 
         var text_content = 'Welcome to the Slot Machine game!\n\nIn this experiment ' +
             'you will be trying to minimize the displeasure you get from slot machines.\n\n' +
-            'In this experiment, the slot machines will deliver a misophonia sound.' +
+            'In this experiment, the slot machines will deliver an unpleasant sound.' +
             '\n\n\nLet’s take a look at the setup.';
         var text = this.add.text(this.game.canvas.width / 2,
             this.game.canvas.height / 2 - 50,
@@ -227,8 +227,8 @@ export default class InstructionsScene extends Phaser.Scene {
         this.objGroup.clear(true, true);
 
         // Draw the trial number and score text
-        this.text_content = 'Using your keyboard, please select your worst misophonia trigger.\n' +
-        'Think carefully and press the LETTER key to indicate your worst misophonia trigger.\n\n' +
+        this.text_content = 'Using your keyboard, please select the sound that annoys you the most.\n' +
+        'Think carefully and press the LETTER key to indicate the most annoying sound.\n\n' +
         'A. ' + this.choice_A + ' (press “A” key)\n\n' +
         'B. ' + this.choice_B + ' (press “B” key)\n\n' +
         'C. ' + this.choice_C + ' (press “C” key)\n\n' +
@@ -845,8 +845,8 @@ export default class InstructionsScene extends Phaser.Scene {
 
         // Draw the trial number and score text
         this.text_content = 'Now, let’s practice a few times before starting the experiment.\n\n' +
-            'Remember, one of the slot machines is less likely to give you a misophonia sound. Over the course of the ' +
-            'experiment, the better slot machine (no misophonia sound) might change! Do your best to ' +
+            'Remember, one of the slot machines is less likely to give you a unpleasant sound. Over the course of the ' +
+            'experiment, the better slot machine (no unpleasant sound) might change! Do your best to ' +
             'find out which one it is!';
         this.text = this.add.text(this.game.canvas.width / 2,
             this.game.canvas.height / 2 - 50,
