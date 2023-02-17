@@ -190,25 +190,6 @@ export default class InstructionsScene extends Phaser.Scene {
 
     }
 
-    // Choose random order for miso triggers to display on Screen 2
-    // randomize_choice_order() {
-    //     var random_order_choices = ['Gulping water', 'Sniffing', 'Swishing water', 'Sipping', 'Wet chewing', 'Scraping on a plate']
-    //     shuffle(random_order_choices);
-    //     console.log(random_order_choices)
-    //     this.choice_A = random_order_choices[0];
-    //     this.choice_B = random_order_choices[1];
-    //     this.choice_C = random_order_choices[2];
-    //     this.choice_D = random_order_choices[3];
-    //     this.choice_E = random_order_choices[4];
-    //     this.choice_F = random_order_choices[5];
-    //     console.log(this.choice_A)
-    //     console.log(this.choice_B)
-    //     console.log(this.choice_C)
-    //     console.log(this.choice_D)
-    //     console.log(this.choice_E)
-    //     console.log(this.choice_F)
-    // }
-
     // SCREEN 2 (MISO TRIGGER SELECTION) FUNCTIONS
     draw_screen_2() {
         this.randomize_choice_order();
@@ -866,7 +847,12 @@ export default class InstructionsScene extends Phaser.Scene {
         var participant_info = {
             participant_id: this.participant_id,
             miso_trigger: this.miso_trigger,
-            choices_order: this.choices_order,
+            choice_a: this.choice_A,
+            choice_b: this.choice_B,
+            choice_c: this.choice_C,
+            choice_d: this.choice_D,
+            choice_e: this.choice_E,
+            choice_f: this.choice_F,
             reversal_timings: this.reversal_timings,
             base_mood_rating: this.base_mood_rating,
             timestamp: (new Date()).getTime() / 1000

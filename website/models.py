@@ -6,11 +6,16 @@ class Participant(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     pid = db.Column(db.String(100))
     miso_trigger = db.Column(db.String(100))
-    reversal_timings = db.Column(db.String(10))
+    choice_a = db.Column(db.String(100))
+    choice_b = db.Column(db.String(100))
+    choice_c = db.Column(db.String(100))
+    choice_d = db.Column(db.String(100))
+    choice_e = db.Column(db.String(100))
+    choice_f = db.Column(db.String(100))
     base_mood_rating = db.Column(db.Integer)
+    reversal_timings = db.Column(db.String(10))
     timestamp = db.Column(db.Float)
-    choices_order=db.Column(db.String(100))
-    
+
     taskdata = db.relationship("TaskData")
     triggerdata = db.relationship("TriggerData")
 

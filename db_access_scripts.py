@@ -5,6 +5,7 @@ from glob import glob; from os.path import expanduser
 from datetime import date
 
 root_dir = '/Users/janet/Desktop/Sinai_Projects/Code/'
+# root_dir = '/Users/alissachen/Documents/Github/'
 project_dir = 'task_slot-machine-misophonia/website'
 
 # Convert database SQL query --> pandas dataframe

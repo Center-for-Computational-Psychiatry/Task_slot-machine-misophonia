@@ -1,8 +1,0 @@
-id,pid,miso_trigger,reversal_timings,base_mood_rating,timestamp
-1,testing,gulping,B,25,1676409698.5269089
-2,testing,sipping,B,27,1676409958.51063
-3,testing,swishing,A,25,1676411200.751956
-4,test,wet_chewing,D,25,1676476740.950586
-5,test,scraping_plate,B,17,1676477676.402098
-6,0000001,sipping,D,34,1676481787.257979
-7,0000001,swishing,B,37,1676481950.3558059

@@ -20,7 +20,12 @@ def save_participant():
     participant = Participant(
         pid=data["participant_id"],
         miso_trigger=data["miso_trigger"],
-        choices_order=data["choices_order"],
+        choice_a=data["choice_a"],
+        choice_b=data["choice_b"],
+        choice_c=data["choice_c"],
+        choice_d=data["choice_d"],
+        choice_e=data["choice_e"],
+        choice_f=data["choice_f"],
         reversal_timings=data["reversal_timings"],
         base_mood_rating=data["base_mood_rating"],
         timestamp=time.time()
