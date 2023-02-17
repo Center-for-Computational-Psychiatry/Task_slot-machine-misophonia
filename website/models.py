@@ -14,7 +14,7 @@ class Participant(db.Model, UserMixin):
     choice_f = db.Column(db.String(100))
     base_mood_rating = db.Column(db.Integer)
     reversal_timings = db.Column(db.String(10))
-    timestamp = db.Column(db.Float)
+    timestamp = db.Column(db.String(100))
 
     taskdata = db.relationship("TaskData")
     triggerdata = db.relationship("TriggerData")

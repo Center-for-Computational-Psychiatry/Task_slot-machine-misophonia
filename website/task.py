@@ -28,7 +28,7 @@ def save_participant():
         choice_f=data["choice_f"],
         reversal_timings=data["reversal_timings"],
         base_mood_rating=data["base_mood_rating"],
-        timestamp=time.time()
+        timestamp=data["timestamp"]
     )
     db.session.add(participant)
     db.session.commit()

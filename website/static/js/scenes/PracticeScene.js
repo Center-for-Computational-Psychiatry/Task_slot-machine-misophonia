@@ -27,7 +27,7 @@ export default class PracticeScene extends BaseScene {
         super.create();
         this.total_num_trials = 5; // this line needs to come AFTER super.create,
         // or else will be overwritten by BaseScene's total_num_trials
-        
+
         console.log('Practice Scene loading.');
 
         if (this.reversal_timings == 'A') {
@@ -111,25 +111,6 @@ export default class PracticeScene extends BaseScene {
         // Set restart flag to true
         this.next_phase = true;
         this.keySPACE.enabled = true;
-    }
-
-    save_practice_block() {
-        // Save ratings, score, choices, time elapsed
-        console.log(this.ratings);
-        console.log(this.gametimer.getElapsedSeconds())
-        this.registry.set("practice_phase", {
-            prolific_id: this.prolific_id,
-            phase: 'practice',
-            attention_responses: this.attention_responses,
-            mood_ratings: this.mood_ratings,
-            outcomes: this.outcomes,
-            choices: this.presses,
-            choicetimes: this.presstimes,
-            cuetimes: this.cuepresentations,
-            rewardtimes: this.rewardpresentations,
-            timeelapsed: this.gametimer.getElapsedSeconds()
-        });
-        saveTrialData(this.registry.get(`practice_phase`));
     }
 
     start_next_phase() {

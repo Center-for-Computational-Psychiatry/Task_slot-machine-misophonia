@@ -843,6 +843,15 @@ export default class InstructionsScene extends Phaser.Scene {
     }
 
     save_participant_info() {
+        // Get current date time object
+        // https://stackoverflow.com/questions/10211145/getting-current-date-and-time-in-javascript
+        
+        var currentdate = new Date();
+        var datetime = currentdate.getMonth() + "/"
+                    + currentdate.getFullYear() + " @ "
+                    + currentdate.getHours() + ":"
+                    + currentdate.getMinutes() + ":"
+                    + currentdate.getSeconds();
 
         var participant_info = {
             participant_id: this.participant_id,
@@ -855,7 +864,7 @@ export default class InstructionsScene extends Phaser.Scene {
             choice_f: this.choice_F,
             reversal_timings: this.reversal_timings,
             base_mood_rating: this.base_mood_rating,
-            timestamp: (new Date()).getTime() / 1000
+            timestamp: datetime
         };
         // Send to Flask's task.py
         console.log('Saving participant data...')
