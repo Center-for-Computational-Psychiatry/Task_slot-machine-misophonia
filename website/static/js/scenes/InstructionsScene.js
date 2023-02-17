@@ -362,7 +362,7 @@ export default class InstructionsScene extends Phaser.Scene {
         var bartext1 = this.add.text(
             this.game.canvas.width / 2 - 100,
             this.game.canvas.height / 2 - 35,
-            'LOSS\n(Misophonia Sound)', this.text_params);
+            'LOSS\n(Unpleasant Sound)', this.text_params);
         bartext1.setOrigin(0.5, 0.5);
         var bartext2 = this.add.text(
             this.game.canvas.width / 2 + 100,
@@ -537,8 +537,8 @@ export default class InstructionsScene extends Phaser.Scene {
 
         // Slot instructions text
         var text_content = 'In each trial, you will be presented with a blue slot machine and a green ' +
-            'slot machine. One of these machines is less likely to give a MISOPHONIA TRIGGER than the other. However, the better machine ' +
-            'might change during the experiment! Your job is to discover which machine does not give you a misophonia sound!\n\n' +
+            'slot machine. One of these machines is less likely to give an unpleasant sound than the other. However, the better machine ' +
+            'might change during the experiment! Your job is to discover which machine does not give you an unpleasant sound!\n\n' +
             'Let’s try spinning one of the machines now.\nPress the RIGHT arrow to spin the slot machine on the right.';
         this.text = this.add.text(this.game.canvas.width / 2,
             this.game.canvas.height / 2 - 150,
