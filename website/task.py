@@ -58,17 +58,3 @@ def save_trial_data():
     db.session.add(taskdata)
     db.session.commit()
     return jsonify({})
-
-
-# @task.post("/save-trigger")
-# def save_trigger():
-#     data = json.loads(request.data)
-#     triggerdata = TriggerData(
-#         pid=data["participant_id"],
-#         run=session["prun_db"],
-#         pid_db=session["pid_db"],
-#         trigger=time.time(),
-#     )
-#     db.session.add(triggerdata)
-#     db.session.commit()
-#     return jsonify({})

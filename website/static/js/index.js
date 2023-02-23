@@ -5,9 +5,15 @@ var config = {
     type: Phaser.AUTO,
     width: 1000,
     height: 600,
+    // backgroundColor: '#FFFFFF', black
+    // backgroundColor: '#4a5896', blue-purple
+    // backgroundColor: '#4488aa', nice blue
+    // textColor: '#000000', white
     scene: [InstructionsScene],
     scale: {
         mode: Phaser.Scale.FIT,
+        // possible way to improve text quality and blurriness
+        // https://www.html5gamedevs.com/topic/31404-scaling-to-fill-screen-maintain-pixel-ratio-but-not-aspect-ratio/
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
     dom: {

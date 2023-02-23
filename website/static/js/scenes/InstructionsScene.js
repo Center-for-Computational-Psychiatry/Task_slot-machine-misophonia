@@ -845,9 +845,10 @@ export default class InstructionsScene extends Phaser.Scene {
     save_participant_info() {
         // Get current date time object
         // https://stackoverflow.com/questions/10211145/getting-current-date-and-time-in-javascript
-        
+
         var currentdate = new Date();
         var datetime = currentdate.getMonth() + "/"
+                    + currentdate.getDay() + "/"
                     + currentdate.getFullYear() + " @ "
                     + currentdate.getHours() + ":"
                     + currentdate.getMinutes() + ":"
@@ -1031,15 +1032,14 @@ var getID = function (scene) {
         'Slot Machine Game', scene.text_params);
     welcome_text.setScale(1.5);
     scene.objGroup.add(welcome_text);
-
     //Subject ID field
     var id_caption = scene.add.text(
-        scene.game.canvas.width / 2 - 150,
+        scene.game.canvas.width / 2 - 125,
         scene.game.canvas.height / 2 - 50,
-        'Subject ID:', scene.text_params);
+        'FFID:', scene.text_params);
     scene.objGroup.add(id_caption);
     // if (scene.url_pid == null) {
-    var id_text = `0000001`;
+    var id_text = `FF######`;
     //} else {
     //     var id_text = scene.url_pid;
     // }
@@ -1049,7 +1049,7 @@ var getID = function (scene) {
         id_text, scene.text_params);
     var id_textbox = createTextBox(scene,
         scene.game.canvas.width / 2,
-        scene.game.canvas.height / 2 - 38,
+        scene.game.canvas.height / 2 - 37,
         scene.id_text_content)
     id_textbox
         .setOrigin(0, 0)
@@ -1060,13 +1060,13 @@ var getID = function (scene) {
     scene.objGroup.add(id_textbox)
     //Continue button
     var buttons = scene.rexUI.add.buttons({
-        x: scene.game.canvas.width / 2,
+        x: scene.game.canvas.width / 2 - 25,
         y: scene.game.canvas.height / 2 + 150,
         // width: 100,
         // orientation: 'x',
         buttons: [
-            createButton(scene, '> CLICK HERE TO CONTINUE <'), // Add button in constructor
-        ],
+            createButton(scene, '> CLICK HERE TO CONTINUE <') // Add button in constructor
+        ]
     })
         .layout()
     // .drawBounds(this.add.graphics(), COLOR_LIGHT)
@@ -1074,7 +1074,7 @@ var getID = function (scene) {
 
     buttons
         .on('button.click', () => {
-            console.log(`Running task for PID: ${scene.id_text_content.text}`);
+            console.log(`Running task for FFID: ${scene.id_text_content.text}`);
             scene.objGroup.clear(true, true);
             scene.participant_id = scene.id_text_content.text;
             scene.draw_screen_1();

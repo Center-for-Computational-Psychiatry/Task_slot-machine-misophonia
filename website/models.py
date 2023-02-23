@@ -17,8 +17,6 @@ class Participant(db.Model, UserMixin):
     timestamp = db.Column(db.String(100))
 
     taskdata = db.relationship("TaskData")
-    triggerdata = db.relationship("TriggerData")
-
 
 class TaskData(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -35,14 +33,5 @@ class TaskData(db.Model):
     rt = db.Column(db.Float)
     spinspeed = db.Column(db.String(50))
     mood_rating = db.Column(db.Integer)
-
-    pid_db = db.Column(db.Integer, db.ForeignKey("participant.id"))
-
-
-class TriggerData(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    run = db.Column(db.Integer)
-    pid = db.Column(db.String(100))
-    trigger = db.Column(db.Float)
 
     pid_db = db.Column(db.Integer, db.ForeignKey("participant.id"))

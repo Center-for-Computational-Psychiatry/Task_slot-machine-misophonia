@@ -10,7 +10,6 @@ export default class PracticeScene extends BaseScene {
     }
 
     preload() {
-        console.log(this.miso_trigger)
     }
 
     create(data) {
