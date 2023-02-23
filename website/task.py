@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, jsonify
 from flask import session
-from .models import TaskData, Participant, TriggerData
+from .models import TaskData, Participant
 from flask_login import current_user
 from . import db
 import time

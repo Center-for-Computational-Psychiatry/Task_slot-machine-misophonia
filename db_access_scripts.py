@@ -4,9 +4,10 @@ from IPython.display import display
 from glob import glob; from os.path import expanduser
 from datetime import date
 
-root_dir = '/Users/janet/Desktop/Sinai_Projects/Code/'
-# root_dir = '/Users/alissachen/Documents/Github/'
-project_dir = 'task_slot-machine-misophonia/website'
+# root_dir = '/Users/janet/Desktop/Sinai_Projects/Code/'
+root_dir = '/Users/alissachen/Documents/Github/'
+# project_dir = 'Task_slot-machine-misophonia/website' # Janet's db directory
+project_dir = 'Task_slot-machine-misophonia/instance' # Alissa's db directory
 
 # Convert database SQL query --> pandas dataframe
 con = sqlite3.connect(f'{root_dir}/{project_dir}/database-misophonia.sqlite')
@@ -14,13 +15,11 @@ con = sqlite3.connect(f'{root_dir}/{project_dir}/database-misophonia.sqlite')
 all_tables = pd.read_sql_query("SELECT * from sqlite_master", con)
 participant_data = pd.read_sql_query("SELECT * from participant", con)
 task_data = pd.read_sql_query("SELECT * from task_data", con)
-trigger_data = pd.read_sql_query("SELECT * from trigger_data", con)
 
 # Verify that result of SQL query is stored in the dataframe
 display(all_tables)
 display(participant_data)
 display(task_data)
-# display(trigger_data)
 
 # Get current date time object
 # https://www.programiz.com/python-programming/datetime/strftime

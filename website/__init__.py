@@ -18,7 +18,7 @@ def create_app():
 
     app.register_blueprint(task, url_prefix="/")
 
-    from .models import Participant, TaskData, TriggerData
+    from .models import Participant, TaskData
 
     with app.app_context():
         db.create_all()
